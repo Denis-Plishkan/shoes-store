@@ -1,3 +1,8 @@
+@import "reset";
+@import "media";
+
+
+
 body {
   font-family: 'Pragmatica', sans-serif;
   font-weight: bold;
@@ -15,6 +20,7 @@ body {
   flex-direction: column;
   min-height: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .main {
