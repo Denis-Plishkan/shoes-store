@@ -2,8 +2,8 @@
 import BaseIcon from '../Base/BaseIcon.vue'
 
 interface IButton {
-  txt: string
-  modify: string
+  txt?: string
+  modify?: string
 }
 
 defineProps<IButton>()
@@ -12,6 +12,8 @@ defineProps<IButton>()
 <template>
   <button class="button" :class="`button_${modify}`">
     {{ txt }}
+
+    <slot />
   </button>
 </template>
 
