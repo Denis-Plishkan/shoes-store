@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import SvgManager from "./components/Base/SvgManager.vue";
-import TheHeader from "./components/Base/TheHeader.vue";
-import TheFooter from "./components/Base/TheFooter.vue";
+import SvgManager from './components/Base/SvgManager.vue'
+import TheHeader from './components/Base/TheHeader.vue'
+import TheFooter from './components/Base/TheFooter.vue'
 </script>
 
 <template>
   <div class="wrapper">
-    <TheHeader/>
+    <TheHeader />
 
-    <RouterView/>
+    <RouterView />
 
-    <TheFooter/>
+    <TheFooter />
   </div>
-  <SvgManager/>
+  <SvgManager />
 </template>
 
 <style lang="scss">
-@import "src/assets/base";
+@import 'assets/style/base';
 </style>
