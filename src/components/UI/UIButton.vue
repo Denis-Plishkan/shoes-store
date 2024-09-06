@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import BaseIcon from '../Base/BaseIcon.vue'
 
 interface IButton {
   txt: string

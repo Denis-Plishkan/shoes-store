@@ -1,10 +1,10 @@
 <script setup lang="ts">
 
-import {AuthorizationPageUi} from "@/components";
+import {RecoverPasswordPageUi} from "@/components";
 </script>
 
 <template>
-  <AuthorizationPageUi/>
+  <RecoverPasswordPageUi/>
 </template>
 
 <style scoped>

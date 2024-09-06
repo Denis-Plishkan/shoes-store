@@ -1,0 +1,84 @@
+.authorization {
+  margin-top: 100px;
+
+  &__title {
+    font-family: 'Pragmatica', sans-serif;
+    font-weight: 500;
+    font-size: 45px;
+    margin-bottom: 52px;
+  }
+
+  &__form-wrapper {
+    border: 1px solid #eaeaea;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__form-wrapper-left {
+    min-width: 464px;
+
+    label {
+      font-family: 'Pragmatica', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      color: #000;
+    }
+  }
+
+  &__right {
+    height: fit-content;
+    position: relative;
+    max-width: 520px;
+
+    &:after {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: -140px;
+      width: 1px;
+      height: 100%;
+      background-color: #eaeaea;
+    }
+
+    p {
+      font-family: 'Pragmatica', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 175%;
+      color: #515151;
+      margin-bottom: 10px;
+
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__right-title {
+    position: relative;
+
+    svg {
+      width: 40px;
+      height: 47px;
+      position: absolute;
+      left: -74px;
+    }
+
+    h2 {
+      font-family: 'Pragmatica', sans-serif;
+      font-weight: 500;
+      font-size: 28px;
+      margin-bottom: 38px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+}

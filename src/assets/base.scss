@@ -1,14 +1,12 @@
 @import "reset";
 @import "media";
 
-
-
 body {
   font-family: 'Pragmatica', sans-serif;
   font-weight: bold;
 }
 
-.container {
+[class$="__container"] {
   max-width: 1390px;
   padding: 0 15px;
   width: 100%;

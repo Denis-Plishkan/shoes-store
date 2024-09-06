@@ -8,6 +8,21 @@ const router = createRouter({
             path: '/',
             name: 'home',
             component: MainPage
+        },
+        {
+            path: '/registration',
+            name: 'registration',
+            component: () => import("@/views/RegistrationPage.vue"),
+        },
+        {
+            path: '/authorization',
+            name: 'authorization',
+            component: () => import("@/views/AuthorizationPage.vue"),
+        },
+        {
+            path: '/recover-password',
+            name: 'recover-password',
+            component: () => import("@/views/RecoverPasswordPage.vue"),
         }
     ]
 })
