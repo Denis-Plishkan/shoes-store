@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 interface IButton {
   txt?: string
   modify?: string
@@ -9,7 +8,7 @@ defineProps<IButton>()
 </script>
 
 <template>
-  <button class="button" :class="`button_${modify}`">
+  <button class="button" :class="modify ? `button_${modify}` : ''">
     {{ txt }}
 
     <slot />

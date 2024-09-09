@@ -23,7 +23,6 @@ export function headerData() {
   ]
 
   const summer: ILinks[] = [
-    { href: '#', name: 'Лето' },
     { href: '#', name: 'Для бега' },
     { href: '#', name: 'Повседневная' },
     { href: '#', name: 'Треккинговая' },
@@ -42,14 +41,15 @@ export function headerData() {
     { href: '#', name: 'Повседневная' },
     { href: '#', name: 'Треккинговая' },
     { href: '#', name: 'Кожаные' },
-    { href: '#', name: 'Зима' },
+  ]
+
+  const winter = [
     { href: '#', name: 'Утепленные' },
     { href: '#', name: 'Повседневная' },
     { href: '#', name: 'Кожаные' },
   ]
 
   const model: ILinks[] = [
-    { href: '#', name: 'Модели' },
     { href: '#', name: 'Nike Air Force 1' },
     { href: '#', name: 'Nike SB Dunk Low' },
     { href: '#', name: 'Nike Air Max 90' },
@@ -62,5 +62,10 @@ export function headerData() {
     { href: '#', name: 'Nike Air Presto' },
   ]
 
-  return { linksTop, links, icons, summer, demiSeason, model }
+  const photo = {
+    webp: new URL('../assets/img/header-shoes.webp', import.meta.url),
+    png: new URL('../assets/img/header-shoes.png', import.meta.url),
+  }
+
+  return { linksTop, links, icons, summer, demiSeason, winter, model, photo }
 }
