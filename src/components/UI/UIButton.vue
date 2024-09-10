@@ -2,13 +2,18 @@
 interface IButton {
   txt?: string
   modify?: string
+  type?: 'button' | 'submit'
 }
 
-defineProps<IButton>()
+withDefaults(defineProps<IButton>(), {
+  type: 'button',
+  text: '',
+  modify: '',
+})
 </script>
 
 <template>
-  <button class="button" :class="modify ? `button_${modify}` : ''">
+  <button class="button" :type="type" :class="modify ? `button_${modify}` : ''">
     {{ txt }}
 
     <slot />
