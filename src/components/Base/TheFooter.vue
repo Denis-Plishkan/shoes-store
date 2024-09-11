@@ -23,6 +23,7 @@ const { nameDevice: isTable } = useMobileBreakpoint(767)
 const sentEmail = (values) => {
   console.log('Відправка email:', values.email)
 }
+
 const schema = yup.object().shape({
   email: yup.string().email().required(),
 })
@@ -187,9 +188,6 @@ const schema = yup.object().shape({
       display: flex;
       justify-content: space-between;
     }
-
-    @include media-breakpoint-down(sm) {
-    }
   }
 
   &__logo-link {
@@ -198,10 +196,6 @@ const schema = yup.object().shape({
     svg {
       width: 91px;
       height: 31px;
-
-      //@include media-breakpoint-down(sm) {
-      //  width: 147px;
-      //}
     }
   }
 

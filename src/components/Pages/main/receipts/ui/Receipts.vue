@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import BaseIcon from '../../Base/BaseIcon.vue'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import UICard from '../../UI/UICard.vue'
-
 import { getFirestore, collection, getDocs } from 'firebase/firestore'
-import firebaseApp from '../../../modules/firebase/firebase.ts'
 import { onMounted, ref } from 'vue'
+import BaseIcon from '@/components/Base/BaseIcon.vue'
+import UICard from '@/components/UI/UICard.vue'
+import firebaseApp from '@/modules/firebase/firebase'
 
 const db = getFirestore(firebaseApp)
 const shoesData = ref([])
@@ -69,62 +68,5 @@ onMounted(getShoes)
 </template>
 
 <style lang="scss">
-@import '@/assets/style/variable';
-@import '@/assets/style/media';
-.receipts {
-  margin-bottom: 115px;
-  &__row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 60px;
-
-    @include media-breakpoint-down(md) {
-      margin-bottom: 33px;
-    }
-  }
-
-  &__title {
-    font-weight: 500;
-    font-size: 39px;
-    line-height: 128%;
-    text-transform: uppercase;
-    color: $dark-black;
-
-    @include media-breakpoint-down(md) {
-      font-size: 24px;
-    }
-  }
-
-  &__arrows {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 113px;
-  }
-
-  &__prev,
-  &__next {
-    width: 40px;
-    height: 14px;
-
-    svg {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
-.swiper-slide {
-  width: 440px;
-
-  @include media-breakpoint-down(md) {
-    width: 226px;
-  }
-
-  @include media-breakpoint-down(xs) {
-    width: 158px;
-  }
-}
+@import 'Receipts';
 </style>

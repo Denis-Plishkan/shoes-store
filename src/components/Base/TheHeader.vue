@@ -10,7 +10,6 @@ import { BaseInput } from '@/components'
 
 const like = ref(1)
 const basket = ref(4)
-const isToggle = ref(false)
 const isSearch = ref(false)
 const isCatalog = ref(false)
 const isMenu = ref(false)
@@ -19,7 +18,6 @@ const isDemiSeason = ref(false)
 const isWinter = ref(false)
 const isModel = ref(false)
 
-const handleToggle = useToggle(isToggle)
 const handleSearch = useToggle(isSearch)
 const handleCatalog = useToggle(isCatalog)
 const handleMenu = useToggle(isMenu)

@@ -92,9 +92,18 @@ defineProps<ICard>()
 </template>
 
 <style lang="scss">
+@import '@/assets/style/media';
 .card {
   width: 440px;
   position: relative;
+
+  @include media-breakpoint-down(md) {
+    width: 226px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    width: 158px;
+  }
 
   &__row {
     position: absolute;
@@ -104,6 +113,18 @@ defineProps<ICard>()
     justify-content: space-between;
     align-items: center;
     width: 400px;
+
+    @include media-breakpoint-down(md) {
+      width: 196px;
+      top: 10px;
+      left: 15px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      width: 138px;
+      top: 10px;
+      left: 10px;
+    }
   }
 
   &__label {
@@ -115,6 +136,15 @@ defineProps<ICard>()
     padding: 10px;
     background: #000;
 
+    @include media-breakpoint-down(md) {
+      font-size: 9px;
+      line-height: 133%;
+      padding: 5px 18px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      padding: 5px 6px;
+    }
     &_sale {
       background: #ff6915;
     }
@@ -131,12 +161,29 @@ defineProps<ICard>()
     svg {
       width: 100%;
       height: 100%;
+      stroke: #000;
     }
   }
 
   &__img {
     width: 440px;
     height: 445px;
+
+    @include media-breakpoint-down(md) {
+      width: 226px;
+      height: 160px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    @include media-breakpoint-down(xs) {
+      width: 158px;
+      height: 160px;
+    }
   }
 
   &__column {
@@ -144,6 +191,14 @@ defineProps<ICard>()
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-row-gap: 9px;
+
+    @include media-breakpoint-down(md) {
+      margin: 15px 0 0;
+    }
+
+    @include media-breakpoint-down(xs) {
+      width: 158px;
+    }
   }
 
   &__gender {
@@ -153,12 +208,22 @@ defineProps<ICard>()
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #747474;
+
+    @include media-breakpoint-down(md) {
+      font-size: 11px;
+      line-height: 100%;
+      color: #747474;
+    }
   }
 
   &__name {
     font-weight: 400;
     font-size: 19px;
     line-height: 137%;
+
+    @include media-breakpoint-down(md) {
+      font-size: 16px;
+    }
   }
 
   &__color,
@@ -174,6 +239,10 @@ defineProps<ICard>()
     line-height: 173%;
     color: #2e2e2e;
     margin: 0 10px 0 0;
+
+    @include media-breakpoint-down(md) {
+      font-size: 13px;
+    }
   }
 
   &__color-dots {
@@ -185,6 +254,11 @@ defineProps<ICard>()
 
     &:last-child {
       margin: 0;
+    }
+
+    @include media-breakpoint-down(md) {
+      width: 13px;
+      height: 13px;
     }
   }
 
