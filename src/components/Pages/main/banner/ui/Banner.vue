@@ -8,14 +8,10 @@ import PictureComponent from '@/components/Base/PictureComponent.vue'
 import BaseIcon from '@/components/Base/BaseIcon.vue'
 import { useMobileBreakpoint } from '@/composible/useResize'
 import { NavigationOptions } from 'swiper/types'
-import { mainData } from '@/data/MainData'
-import TheLastReceipts from '@/components/Pages/main/TheLastReceipts.vue'
-
-const { description } = mainData()
 
 const photo = {
-  webp: new URL('@/assets/img/nike.webp', import.meta.url),
-  png: new URL('@/assets/img/nike.png', import.meta.url),
+  webp: new URL('@/assets/img/banner1.webp', import.meta.url),
+  png: new URL('@/assets/img/banner1.png', import.meta.url),
 }
 
 const { nameDevice: isDesktop } = useMobileBreakpoint(1023)
@@ -124,7 +120,6 @@ const { nameDevice: isMobile } = useMobileBreakpoint(767)
           <BaseIcon id="next" />
         </div>
       </div>
-      <div class="banner__circle" ref="progressCircle"></div>
     </div>
   </section>
 </template>

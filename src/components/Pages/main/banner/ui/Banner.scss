@@ -54,6 +54,7 @@
       @include media-breakpoint-down(md) {
         margin: 0 0 10px 0;
       }
+
     }
 
     @include media-breakpoint-down(lg) {
@@ -67,7 +68,7 @@
 
     @include media-breakpoint-down(sm) {
       max-width: 380px;
-      //text-align: center;
+      margin: 0 0 29px;
     }
   }
 
@@ -148,6 +149,7 @@
     @include media-breakpoint-down(xs) {
       max-width: 330px;
       height: 340px;
+      margin: 0 auto;
     }
   }
 

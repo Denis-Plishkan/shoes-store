@@ -8,19 +8,40 @@ import { onMounted, ref } from 'vue'
 import BaseIcon from '@/components/Base/BaseIcon.vue'
 import UICard from '@/components/UI/UICard.vue'
 import firebaseApp from '@/modules/firebase/firebase'
+import UICardSkeleton from '@/components/UI/UICardSkeleton.vue'
+import { IData } from '@/type/type'
 
 const db = getFirestore(firebaseApp)
-const shoesData = ref([])
-
+const shoesData = ref<IData[]>([])
+const isLoading = ref(true)
 async function getShoes() {
   try {
     const querySnapshot = await getDocs(collection(db, 'sneakers'))
 
-    querySnapshot.forEach((data) => {
-      shoesData.value.push(data.data())
+    querySnapshot.forEach((doc) => {
+      const data = doc.data()
+
+      const shoe: IData = {
+        colors: data.colors || [],
+        gender: data.gender || '',
+        name: data.name || '',
+        label: data.label || '',
+        price: {
+          newPrice: data.price?.newPrice || 0,
+          oldPrice: data.price?.oldPrice || 0,
+        },
+        img: {
+          default: data.img?.default || '',
+          webP: data.img?.webP || '',
+        },
+      }
+
+      shoesData.value.push(shoe)
     })
   } catch (error) {
     console.log(error)
+  } finally {
+    isLoading.value = false
   }
 }
 
@@ -58,7 +79,11 @@ onMounted(getShoes)
             nextEl: '.receipts__next',
           }"
         >
-          <swiper-slide v-for="(shoe, index) in shoesData" :key="index">
+          <swiper-slide v-for="(_num, ind) in 3" :key="ind" v-if="isLoading">
+            <UICardSkeleton />
+          </swiper-slide>
+
+          <swiper-slide v-for="(shoe, index) in shoesData" :key="index" v-else>
             <UICard :card="shoe" />
           </swiper-slide>
         </swiper>

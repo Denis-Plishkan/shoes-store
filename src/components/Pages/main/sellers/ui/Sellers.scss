@@ -1,47 +1,17 @@
 @import '@/assets/style/variable';
 @import '@/assets/style/media';
-.receipts {
-  margin-bottom: 115px;
-  &__row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 60px;
+@import "@/components/Pages/main/receipts/ui/Receipts";
 
-    @include media-breakpoint-down(md) {
-      margin-bottom: 33px;
-    }
-  }
+.sellers__prev,
+.sellers__next {
+  width: 40px;
+  height: 14px;
+  cursor: pointer;
 
-  &__title {
-    font-weight: 500;
-    font-size: 39px;
-    line-height: 128%;
-    text-transform: uppercase;
-    color: $dark-black;
-
-    @include media-breakpoint-down(md) {
-      font-size: 24px;
-    }
-  }
-
-  &__arrows {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 113px;
-  }
-
-  &__prev,
-  &__next {
-    width: 40px;
-    height: 14px;
-
-    svg {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 }
 

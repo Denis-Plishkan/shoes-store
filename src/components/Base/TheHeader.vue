@@ -863,7 +863,7 @@ const { linksTop, links, icons, summer, demiSeason, winter, model, photo } =
     align-items: center;
     width: 20px;
     height: 20px;
-    position: fixed;
+    position: absolute;
     top: 12px;
     left: 335px;
 

@@ -1,27 +1,7 @@
 <script setup lang="ts">
-import { Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/css'
-import 'swiper/css/pagination'
 import BaseIcon from '../Base/BaseIcon.vue'
 import PictureComponent from '../Base/PictureComponent.vue'
-
-interface IPrice {
-  newPrice: number
-  oldPrice: number
-}
-interface IImg {
-  default: string
-  webP: string
-}
-interface IData {
-  colors: string[]
-  gender: string
-  name: string
-  label: string
-  price: IPrice
-  img: IImg
-}
+import { IData } from '@/type/type'
 
 interface ICard {
   card: IData
@@ -80,7 +60,7 @@ defineProps<ICard>()
         <div class="card__price">
           <p class="card__price-new">{{ card.price.newPrice }} грн.</p>
           <p class="card__price-old" v-if="card.price.oldPrice">
-            {{ card.price.oldPrice }}
+            {{ card.price.oldPrice }} грн.
           </p>
         </div>
         <div class="card__like">
