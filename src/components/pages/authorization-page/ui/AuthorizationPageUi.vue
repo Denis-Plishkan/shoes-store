@@ -76,7 +76,7 @@ async function onSubmit(values) {
         <div class="authorization__form-wrapper-right authorization__right">
           <div class="authorization__right-title">
             <BaseIcon id="user"/>
-            <h2>Уже есть аккаунт?</h2>
+            <h2>Еще нет аккаунта?</h2>
           </div>
           <p>
             <span>Регистрация на сайте</span> позволяет получить доступ к статусу и истории вашего заказа. Просто заполните поля ниже, и вы получите учетную запись.
@@ -95,5 +95,5 @@ async function onSubmit(values) {
 </template>
 
 <style lang="scss">
-@import 'Authorization';
+@import 'AuthorizationPageUi';
 </style>

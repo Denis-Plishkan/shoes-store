@@ -1,3 +1,5 @@
 export * from './registration-page'
 export * from './authorization-page'
 export * from './recover-password-page'
+export * from './catalog-page'
+export * from './product-card-page'

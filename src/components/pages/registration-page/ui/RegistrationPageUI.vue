@@ -89,13 +89,13 @@ async function onSubmit(values) {
             </div>
 
             <div class="field__wrapper">
-              <label for="password">Password</label>
+              <label for="password">Пароль</label>
               <Field placeholder="Придумайте пароль" id="password" name="password" type="password" />
               <ErrorMessage class="field__error" name="password" />
             </div>
 
             <div class="field__wrapper">
-              <label for="passwordConfirmation">Confirm Password </label>
+              <label for="passwordConfirmation">Повторите пароль</label>
               <Field
                   placeholder="Повторите пароль"
                   id="passwordConfirmation"

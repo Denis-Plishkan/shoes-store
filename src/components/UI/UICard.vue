@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import { useRouter } from 'vue-router'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import BaseIcon from '../Base/BaseIcon.vue'
@@ -21,16 +22,22 @@ interface IData {
   label: string
   price: IPrice
   img: IImg
+  id: number
 }
 
-interface ICard {
-  card: IData
+const props = defineProps<{
+  card: IData;
+}>()
+
+const router = useRouter()
+
+function handleCardClick() {
+  router.push({ name: 'product-card', params: { id: props.card.id } })
 }
-defineProps<ICard>()
 </script>
 
 <template>
-  <div class="card">
+  <div class="card" @click="handleCardClick">
     <div class="card__row">
       <p
         class="card__label"
@@ -95,6 +102,7 @@ defineProps<ICard>()
 .card {
   width: 440px;
   position: relative;
+  cursor: pointer;
 
   &__row {
     position: absolute;
@@ -137,6 +145,11 @@ defineProps<ICard>()
   &__img {
     width: 440px;
     height: 445px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__column {
@@ -159,6 +172,10 @@ defineProps<ICard>()
     font-weight: 400;
     font-size: 19px;
     line-height: 137%;
+    width: 400px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   &__color,

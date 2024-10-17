@@ -1,22 +1,45 @@
+@import '@/assets/style/media';
+
 .registration {
   margin-top: 100px;
+  margin-bottom: 120px;
+  @include media-breakpoint-down(sm) {
+    margin-top: 54px;
+  }
 
   &__title {
     font-family: 'Pragmatica', sans-serif;
     font-weight: 500;
     font-size: 45px;
-    margin-bottom: 52px;
+    margin-bottom: 42px;
+    @include media-breakpoint-down(sm) {
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
   }
 
   &__form-wrapper {
     border: 1px solid #eaeaea;
     padding: 40px;
     display: flex;
+    gap: 30px;
     justify-content: space-between;
+    @include media-breakpoint-down(sm) {
+      padding: 15px;
+    }
+    @media(max-width: 767px) {
+      flex-direction: column;
+      justify-content: center;
+      gap: 100px;
+    }
   }
 
   &__form-wrapper-left {
     min-width: 464px;
+
+    @include media-breakpoint-down(md) {
+      min-width: 350px;
+    }
 
     label {
       font-family: 'Pragmatica', sans-serif;
@@ -29,16 +52,30 @@
   &__right {
     height: fit-content;
     position: relative;
-    max-width: 520px;
+    max-width: 563px;
+
+    @include media-breakpoint-down(lg) {
+      margin-top: 100px;
+    }
+    @include media-breakpoint-down(sm) {
+      margin-top: 53px;
+    }
+    @media(max-width: 767px) {
+      margin: 0 auto;
+    }
 
     &:after {
       position: absolute;
       content: '';
       top: 0;
-      left: -140px;
+      left: -120px;
       width: 1px;
       height: 100%;
       background-color: #eaeaea;
+
+      @include media-breakpoint-down(lg) {
+        display: none;
+      }
     }
 
     p {
@@ -48,6 +85,9 @@
       line-height: 175%;
       color: #515151;
       margin-bottom: 10px;
+      @include media-breakpoint-down(lg) {
+       text-align: center;
+      }
 
       span {
         font-weight: 700;
@@ -57,12 +97,21 @@
 
   &__right-title {
     position: relative;
+    @include media-breakpoint-down(lg) {
+      text-align: center;
+    }
 
     svg {
       width: 40px;
       height: 47px;
       position: absolute;
       left: -74px;
+
+      @include media-breakpoint-down(lg) {
+        left: 50%;
+        top: -30px;
+        transform: translate(-50%, -50%);
+      }
     }
 
     h2 {
@@ -76,14 +125,19 @@
 
 .field {
   &__wrapper {
-    margin-bottom: 24px;
+    margin-bottom: 15px;
     position: relative;
+
+    @media(max-width: 420px) {
+      max-width: 298px;
+    }
+
   }
 
   &__error {
     position: absolute;
     left: 0;
-    bottom: -26px;
+    bottom: -20px;
     font-family: "Pragmatica", sans-serif;
     font-weight: 400;
     font-size: 15px;
@@ -97,4 +151,19 @@
 
 .error {
   color: red;
+}
+
+.v-breadcrumbs {
+  padding: 0;
+  margin-top: 28px;
+  margin-bottom: 28px;
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 23px;
+  }
+}
+
+.v-breadcrumbs-item {
+  font-family: 'Pragmatica', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
 }

@@ -1,0 +1,122 @@
+@import '@/assets/style/media';
+
+.catalog {
+  margin-top: 100px;
+  margin-bottom: 120px;
+  @include media-breakpoint-down(sm) {
+    margin-top: 54px;
+  }
+
+  &__title {
+    font-family: 'Pragmatica', sans-serif;
+    font-weight: 500;
+    font-size: 45px;
+    margin-bottom: 42px;
+    @include media-breakpoint-down(sm) {
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    max-width: 1390px;
+    padding: 0 15px;
+    width: 100%;
+    margin: 0 auto;
+
+    @include media-breakpoint-down(my) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include media-breakpoint-down(sm) {
+      align-items: start;
+    }
+  }
+
+  &__right {
+    display: flex;
+    width: 100%;
+
+    @include media-breakpoint-down(my) {
+      justify-content: center;
+    }
+
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+    }
+  }
+
+  &__filter-wrapper {
+    min-height: 72px;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 40px;
+  }
+
+  &__filter-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 554px;
+    gap: 14px;
+    border-right: 1px solid #eaeaea;
+    padding: 0 46px;
+
+    @include media-breakpoint-down(sm) {
+      padding: 0 8px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      flex-direction: column;
+      padding: 14px 8px;
+    }
+
+    p {
+      font-family: 'Pragmatica', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 62%;
+      color: #000;
+    }
+  }
+
+  &__filter-color {
+    max-width: 190px;
+    width: 100%;
+    border-right: 1px solid #eaeaea;
+
+    .v-input__control {
+      min-width: 162px;
+    }
+  }
+
+  &__filter-sort {
+    max-width: 340px;
+    width: 100%;
+    border-right: 1px solid #eaeaea;
+
+    .v-input__control {
+      min-width: 300px;
+    }
+  }
+
+  &__filter-gender {
+    max-width: 180px;
+    width: 100%;
+    border-right: 1px solid #eaeaea;
+
+    .v-input__control {
+      min-width: 150px;
+    }
+  }
+
+  &__card-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+}

@@ -1,0 +1,45 @@
+.v-slider.v-input--horizontal {
+  min-width: 175px;
+}
+
+.v-field__field {
+  input {
+    border: 0;
+    margin: 0;
+    background: #fff;
+    font-family: 'Pragmatica', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #343434;
+  }
+}
+
+.slider {
+  &__value-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+
+    p {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: "";
+        top: 30px;
+        left: -7px;
+        width: 15px;
+        height: 1px;
+        background: #b5b5b5;
+      }
+    }
+  }
+}
+
+.v-input--horizontal {
+  grid-template-columns: auto;
+}
+
+.v-slider.v-input--horizontal > .v-input__control {
+  min-width: 175px;
+}

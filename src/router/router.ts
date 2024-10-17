@@ -23,6 +23,16 @@ const router = createRouter({
             path: '/recover-password',
             name: 'recover-password',
             component: () => import("@/views/RecoverPasswordPage.vue"),
+        },
+        {
+            path: '/catalog',
+            name: 'catalog',
+            component: () => import("@/views/CatalogPage.vue"),
+        },
+        {
+            path: '/product-card/:id',
+            name: 'product-card',
+            component: () => import("@/views/ProductCardPage.vue"),
         }
     ]
 })

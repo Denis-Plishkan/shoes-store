@@ -19,7 +19,7 @@ const handleSearch = useToggle(isSearch)
 const handleCatalog = useToggle(isCatalog)
 const handleMenu = useToggle(isMenu)
 const handleSummer = useToggle(isSummer)
-const { nameDevice: isTable } = useMobileBreakpoint(767)
+const { nameDevice: isTable } = useMobileBreakpoint(768)
 const { nameDevice: isMobile } = useMobileBreakpoint(575)
 const { linksTop, links, icons } = headerData()
 </script>
@@ -42,7 +42,7 @@ const { linksTop, links, icons } = headerData()
           </ul>
         </nav>
         <div class="header__top-account">
-          <router-link class="header__top-sign" to="#">
+          <router-link class="header__top-sign" to="registration">
             <BaseIcon id="sign" />
 
             Вход \ Регистрация
@@ -132,6 +132,10 @@ const { linksTop, links, icons } = headerData()
   min-height: 115px;
   z-index: 60;
   background: $white-50;
+
+  @include media-breakpoint-down(sm) {
+    min-height: 72px;
+  }
 
   &__top {
     display: flex;
