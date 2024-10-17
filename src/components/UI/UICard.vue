@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/vue'
 import { useRouter } from 'vue-router'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -24,6 +22,7 @@ interface IData {
   img: IImg
   id: number
 }
+import { IData } from '@/type/type'
 
 const props = defineProps<{
   card: IData;
@@ -87,7 +86,7 @@ function handleCardClick() {
         <div class="card__price">
           <p class="card__price-new">{{ card.price.newPrice }} грн.</p>
           <p class="card__price-old" v-if="card.price.oldPrice">
-            {{ card.price.oldPrice }}
+            {{ card.price.oldPrice }} грн.
           </p>
         </div>
         <div class="card__like">
@@ -99,10 +98,19 @@ function handleCardClick() {
 </template>
 
 <style lang="scss">
+@import '@/assets/style/media';
 .card {
   width: 440px;
   position: relative;
   cursor: pointer;
+
+  @include media-breakpoint-down(md) {
+    width: 226px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    width: 158px;
+  }
 
   &__row {
     position: absolute;
@@ -112,6 +120,18 @@ function handleCardClick() {
     justify-content: space-between;
     align-items: center;
     width: 400px;
+
+    @include media-breakpoint-down(md) {
+      width: 196px;
+      top: 10px;
+      left: 15px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      width: 138px;
+      top: 10px;
+      left: 10px;
+    }
   }
 
   &__label {
@@ -123,6 +143,15 @@ function handleCardClick() {
     padding: 10px;
     background: #000;
 
+    @include media-breakpoint-down(md) {
+      font-size: 9px;
+      line-height: 133%;
+      padding: 5px 18px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      padding: 5px 6px;
+    }
     &_sale {
       background: #ff6915;
     }
@@ -139,6 +168,7 @@ function handleCardClick() {
     svg {
       width: 100%;
       height: 100%;
+      stroke: #000;
     }
   }
 
@@ -150,6 +180,22 @@ function handleCardClick() {
       width: 100%;
       height: 100%;
     }
+
+    @include media-breakpoint-down(md) {
+      width: 226px;
+      height: 160px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    @include media-breakpoint-down(xs) {
+      width: 158px;
+      height: 160px;
+    }
   }
 
   &__column {
@@ -157,6 +203,14 @@ function handleCardClick() {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-row-gap: 9px;
+
+    @include media-breakpoint-down(md) {
+      margin: 15px 0 0;
+    }
+
+    @include media-breakpoint-down(xs) {
+      width: 158px;
+    }
   }
 
   &__gender {
@@ -166,6 +220,12 @@ function handleCardClick() {
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #747474;
+
+    @include media-breakpoint-down(md) {
+      font-size: 11px;
+      line-height: 100%;
+      color: #747474;
+    }
   }
 
   &__name {
@@ -176,6 +236,10 @@ function handleCardClick() {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+
+    @include media-breakpoint-down(md) {
+      font-size: 16px;
+    }
   }
 
   &__color,
@@ -191,6 +255,10 @@ function handleCardClick() {
     line-height: 173%;
     color: #2e2e2e;
     margin: 0 10px 0 0;
+
+    @include media-breakpoint-down(md) {
+      font-size: 13px;
+    }
   }
 
   &__color-dots {
@@ -202,6 +270,11 @@ function handleCardClick() {
 
     &:last-child {
       margin: 0;
+    }
+
+    @include media-breakpoint-down(md) {
+      width: 13px;
+      height: 13px;
     }
   }
 

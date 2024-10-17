@@ -1,15 +1,18 @@
 <script setup lang="ts">
-
 interface IButton {
   txt?: string
   modify?: string
+  type?: 'button' | 'submit'
 }
 
-defineProps<IButton>()
+withDefaults(defineProps<IButton>(), {
+  text: '',
+  modify: '',
+})
 </script>
 
 <template>
-  <button class="button" :class="`button_${modify}`">
+  <button class="button" :type="type" :class="modify ? `button_${modify}` : ''">
     {{ txt }}
 
     <slot />
@@ -17,54 +20,35 @@ defineProps<IButton>()
 </template>
 
 <style lang="scss">
+@import '@/assets/style/variable';
 .button {
   display: flex;
   width: 100%;
   height: 100%;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
 
-  &__btn {
-    font-weight: 500;
-    font-size: 16px;
-    color: #fff;
-    width: 100%;
-    height: 100%;
-
-    &_dark {
-      background: #1e1e1e;
-    }
-  }
-
-  //  span {
-  //    background: #000;
-  //
-  //    svg {
-  //      fill: #ffffff;
-  //    }
-  //  }
-  //
-  //  &:hover {
-  //    background: #000;
-  //
-  //    span {
-  //      background: #1e1e1e;
-  //
-  //      svg {
-  //        fill: #fafafc;
-  //      }
-  //    }
-  //  }
-  //}
-  //
-  &__icon {
+  &_primary {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 65px;
-    height: 65px;
+    background: $light-black;
 
-    svg {
-      width: 20px;
-      height: 20px;
+    &:hover {
+      background: $dark-black;
+    }
+  }
+
+  &_secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $light-orange;
+    color: #fff;
+
+    &:hover {
+      background: #ff9315;
     }
   }
 }
