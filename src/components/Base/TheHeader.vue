@@ -1,16 +1,19 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch, computed } from 'vue'
 import BaseIcon from '@/components/Base/BaseIcon.vue'
 import { useToggle } from '@/composible/useToggle.ts'
 import { useMobileBreakpoint } from '@/composible/useResize.ts'
+import { useLikesStore } from '@/stores/likes'
+import { useBasketStore } from '@/stores/basket'
 import { headerData } from '@/data/HeaderData.ts'
 import UIButton from '@/components/UI/UIButton.vue'
 import PictureComponent from '@/components/Base/PictureComponent.vue'
 import { BaseInput } from '@/components'
 import { useRouter } from 'vue-router'
 
-const like = ref(1)
-const basket = ref(4)
+const likesStore = useLikesStore();
+const basketStore = useBasketStore()
+const like = ref(likesStore.likedCards.length);
 const isSearch = ref(false)
 const isCatalog = ref(false)
 const isMenu = ref(false)
@@ -38,6 +41,17 @@ const router = useRouter();
 function goToCatalog() {
   router.push('/catalog');
 }
+
+const basket = computed(() => {
+  return basketStore.basketCards.reduce((acc, item) => acc + item.quantity, 0);
+});
+
+watch(
+  () => likesStore.likedCards.length,
+  (newLength) => {
+    like.value = newLength;
+  }
+);
 </script>
 
 <template>
