@@ -1,4 +1,5 @@
 @import '@/assets/style/media';
+@import '@/assets/style/variable';
 
 .authorization {
   margin-top: 100px;
@@ -133,6 +134,38 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+
+    @include media-breakpoint-down(xs) {
+      align-items: start;
+    }
+
+    a {
+      width: 100%;
+    }
+  }
+
+  &__button-recover {
+    height: 40px;
+    color: $dark-black;
+
+    @include media-breakpoint-down(xs) {
+      max-width: 250px;
+    }
+  }
+
+  &__button-entry {
+    height: 65px;
+    color: #fff;
+    width: 100%;
+
+    @include media-breakpoint-down(xs) {
+      max-width: 250px;
+    }
+  }
+
+  &__button-registration {
+    height: 65px;
+    color: #fff;
   }
 
 }

@@ -1,28 +1,28 @@
 export function footerData() {
   const infoLinks = [
-    { href: '#', name: 'О магазине' },
-    { href: '#', name: 'Наш блог' },
-    { href: '#', name: 'Доставка' },
-    { href: '#', name: 'Оплата' },
-    { href: '#', name: 'Контакты' },
+    { href: '/404', name: 'О магазине' },
+    { href: '/404', name: 'Наш блог' },
+    { href: '/404', name: 'Доставка' },
+    { href: '/404', name: 'Оплата' },
+    { href: '/404', name: 'Контакты' },
   ]
   const itemLinks = [
-    { href: '#', name: 'Каталог' },
-    { href: '#', name: 'Мужские' },
-    { href: '#', name: 'Женские' },
-    { href: '#', name: 'Детские' },
-    { href: '#', name: 'Распродажа' },
+    { href: '/catalog', name: 'Каталог' },
+    { href: '/catalog-man', name: 'Мужские' },
+    { href: '/catalog-woman', name: 'Женские' },
+    { href: '/catalog-children', name: 'Детские' },
+    { href: '/catalog-sale', name: 'Распродажа' },
   ]
   const shopLinks = [
-    { href: '#', name: 'Личный кабинет' },
-    { href: '#', name: 'Избранное' },
-    { href: '#', name: 'Корзина' },
+    { href: '/404', name: 'Личный кабинет' },
+    { href: '/like-page', name: 'Избранное' },
+    { href: '/basket', name: 'Корзина' },
   ]
 
   const social = [
-    { href: '#', icon: 'instagram' },
-    { href: '#', icon: 'vk' },
-    { href: '#', icon: 'twitter' },
+    { href: '/404', icon: 'instagram' },
+    { href: '/404', icon: 'vk' },
+    { href: '/404', icon: 'twitter' },
   ]
 
   const photo = {

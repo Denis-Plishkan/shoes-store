@@ -6,6 +6,7 @@ import { auth, db } from '@/modules/firebase/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { useRouter } from "vue-router";
+import UIButton from "@/components/UI/UIButton.vue";
 
 const breadcrumbs = [
   {
@@ -105,7 +106,10 @@ async function onSubmit(values) {
               <ErrorMessage class="field__error" name="passwordConfirmation" />
             </div>
 
-            <button type="submit">Создать аккаунт</button>
+            <div class="registration__button-registration">
+              <UIButton :type="'submit'" :txt="'Создать аккаунт'" :modify="'primary'"/>
+            </div>
+
           </Form>
         </div>
         <div class="registration__form-wrapper-right registration__right">
@@ -118,7 +122,9 @@ async function onSubmit(values) {
           </p>
 
           <router-link to="authorization">
-            <button>Авторизоваться</button>
+            <div class="registration__button-authorization">
+              <UIButton :type="'button'" :modify="'secondary'" :txt="'Авторизоваться'"/>
+            </div>
           </router-link>
         </div>
       </div>

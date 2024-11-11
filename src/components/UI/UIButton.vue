@@ -34,6 +34,8 @@ withDefaults(defineProps<IButton>(), {
     justify-content: center;
     align-items: center;
     background: $light-black;
+    color: #fff;
+    transition: background 0.2s ease;
 
     &:hover {
       background: $dark-black;
@@ -46,9 +48,22 @@ withDefaults(defineProps<IButton>(), {
     align-items: center;
     background: $light-orange;
     color: #fff;
+    transition: background 0.2s ease;
 
     &:hover {
       background: #ff9315;
+    }
+  }
+
+  &_third {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F9F9F9;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #efdcdc;
     }
   }
 }

@@ -1,15 +1,19 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch, computed } from 'vue'
 import BaseIcon from '@/components/Base/BaseIcon.vue'
 import { useToggle } from '@/composible/useToggle.ts'
 import { useMobileBreakpoint } from '@/composible/useResize.ts'
+import { useLikesStore } from '@/stores/likes'
+import { useBasketStore } from '@/stores/basket'
 import { headerData } from '@/data/HeaderData.ts'
 import UIButton from '@/components/UI/UIButton.vue'
 import PictureComponent from '@/components/Base/PictureComponent.vue'
 import { BaseInput } from '@/components'
 
-const like = ref(1)
-const basket = ref(4)
+
+const likesStore = useLikesStore();
+const basketStore = useBasketStore()
+const like = ref(likesStore.likedCards.length);
 const isSearch = ref(false)
 const isCatalog = ref(false)
 const isMenu = ref(false)
@@ -31,6 +35,18 @@ const { nameDevice: isTable } = useMobileBreakpoint(768)
 const { nameDevice: isMobile } = useMobileBreakpoint(575)
 const { linksTop, links, icons, summer, demiSeason, winter, model, photo } =
   headerData()
+
+const basket = computed(() => {
+  return basketStore.basketCards.reduce((acc, item) => acc + item.quantity, 0);
+});
+
+watch(
+  () => likesStore.likedCards.length,
+  (newLength) => {
+    like.value = newLength;
+  }
+);
+
 </script>
 
 <template>
@@ -51,7 +67,7 @@ const { linksTop, links, icons, summer, demiSeason, winter, model, photo } =
           </ul>
         </nav>
         <div class="header__top-account">
-          <router-link class="header__top-sign" to="registration">
+          <router-link class="header__top-sign" to="/registration">
             <BaseIcon id="sign" />
 
             Вход \ Регистрация
@@ -65,7 +81,7 @@ const { linksTop, links, icons, summer, demiSeason, winter, model, photo } =
         <div class="header__row">
           <div class="header__sub-row">
             <div class="header__logo">
-              <router-link to="#">
+              <router-link to="/">
                 <BaseIcon id="logo" />
               </router-link>
             </div>
@@ -73,14 +89,17 @@ const { linksTop, links, icons, summer, demiSeason, winter, model, photo } =
             <nav class="header__menu">
               <ul class="header__list">
                 <li class="header__li">
-                  <UIButton
-                    @click="handleCatalog"
-                    class="header__link header__btn"
-                    :class="{ 'header__link_active': isCatalog }"
-                    :txt="isMobile ? '' : !isTable ? 'Каталог' : 'Меню'"
-                  >
-                    <BaseIcon id="menu" />
-                  </UIButton>
+
+                  <router-link to="/catalog">
+                    <UIButton
+                      class="header__link header__btn"
+                      :class="{ 'header__link_active': isCatalog }"
+                      :txt="isMobile ? '' : !isTable ? 'Каталог' : 'Меню'"
+                    >
+                      <BaseIcon id="menu"/>
+                    </UIButton>
+                  </router-link>
+
                 </li>
 
                 <li
@@ -123,7 +142,8 @@ const { linksTop, links, icons, summer, demiSeason, winter, model, photo } =
               >
                 <BaseIcon :id="icon.icon" />
 
-                <span v-if="icon.icon === 'like'" class="header__counter">
+                <span v-if="icon.icon === 'like'" class="header__counter"
+                >
                   {{ like }}
                 </span>
 
@@ -803,6 +823,7 @@ const { linksTop, links, icons, summer, demiSeason, winter, model, photo } =
     height: 16px;
     background: $light-orange;
     border-radius: 50%;
+    z-index: 1;
 
     @include media-breakpoint-down(sm) {
       top: 18px;

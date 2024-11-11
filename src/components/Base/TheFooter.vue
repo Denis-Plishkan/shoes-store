@@ -136,7 +136,7 @@ const schema = yup.object().shape({
           <p class="footer__config">
             Согласен
 
-            <router-link to="/">с политикой конфиденциальности</router-link>
+            <router-link to="/404">с политикой конфиденциальности</router-link>
           </p>
         </div>
       </div>
@@ -149,7 +149,7 @@ const schema = yup.object().shape({
             © 2023 - Swoosh Store - Интернет-магазин ориганальных кроссовок
           </p>
 
-          <router-link class="footer__bottom-link" to="/">
+          <router-link class="footer__bottom-link" to="/404">
             Политика конфиденциальности
           </router-link>
 

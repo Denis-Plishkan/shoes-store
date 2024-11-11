@@ -27,6 +27,7 @@ async function getShoes() {
         gender: data.gender || '',
         name: data.name || '',
         label: data.label || '',
+        id: data.id,
         price: {
           newPrice: data.price?.newPrice || 0,
           oldPrice: data.price?.oldPrice || 0,

@@ -1,0 +1,59 @@
+@import '@/assets/style/media';
+
+.like-page {
+  margin-top: 100px;
+  margin-bottom: 120px;
+  @include media-breakpoint-down(sm) {
+    margin-top: 54px;
+  }
+
+  &__title {
+    font-family: 'Pragmatica', sans-serif;
+    font-weight: 500;
+    font-size: 45px;
+    margin-bottom: 42px;
+    @include media-breakpoint-down(sm) {
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+  }
+
+  &__card-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    text-align: center;
+
+    h2 {
+      font-weight: 500;
+      font-size: 35px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 160%;
+      text-align: center;
+      color: #383838;
+      margin-bottom: 16px;
+
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__button {
+    height: 65px;
+    color: #fff;
+    max-width: 273px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}

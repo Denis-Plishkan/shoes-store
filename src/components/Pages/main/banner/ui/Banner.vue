@@ -43,7 +43,7 @@ const { nameDevice: isMobile } = useMobileBreakpoint(767)
               <h1 class="banner__title">
                 Air max
                 <span></span>
-                Flyknit Racer
+                Fly knit Racer
               </h1>
 
               <p class="banner__text">
@@ -80,7 +80,7 @@ const { nameDevice: isMobile } = useMobileBreakpoint(767)
               <h1 class="banner__title">
                 Air max
                 <span></span>
-                Flyknit Racer
+                Fly knit Racer
               </h1>
 
               <p class="banner__text">

@@ -38,7 +38,7 @@
     min-width: 464px;
 
     @include media-breakpoint-down(md) {
-      min-width: 350px;
+      min-width: 250px;
     }
 
     label {
@@ -47,6 +47,14 @@
       font-size: 15px;
       color: #000;
     }
+  }
+
+  &__button-registration,
+  &__button-authorization {
+    color: #fff;
+    height: 65px;
+    max-width: 464px;
+    margin: 0 auto;
   }
 
   &__right {
@@ -130,6 +138,10 @@
 
     @media(max-width: 420px) {
       max-width: 298px;
+    }
+
+    input {
+      border: 1px solid #eaeaea;
     }
 
   }

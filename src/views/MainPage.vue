@@ -32,8 +32,6 @@ import About from '@/components/Pages/main/about/ui/About.vue'
 
     <About />
 
-    <!--      <ProductCard />-->
-    <!--      <UiDropdown :items="itemsArray" :label="'Цвет'" />-->
   </main>
 </template>
 

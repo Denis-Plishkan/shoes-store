@@ -2,6 +2,7 @@ import './assets/style/base.scss'
 
 import { createApp } from 'vue'
 import App from './App.vue'
+import { createPinia } from 'pinia'
 import router from './router/router.ts'
 
 // Vuetify
@@ -22,6 +23,7 @@ const vuetify = createVuetify({
 
 const app = createApp(App)
 
+app.use(createPinia())
 app.use(router)
 app.component(Skeletor.name, Skeletor)
 app.use(vuetify).mount('#app')

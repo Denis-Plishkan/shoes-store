@@ -6,6 +6,7 @@ import * as yup from "yup";
 import { auth } from '@/modules/firebase/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from "vue-router";
+import UIButton from "@/components/UI/UIButton.vue";
 
 const router = useRouter()
 
@@ -65,10 +66,16 @@ async function onSubmit(values) {
 
             <div class="authorization__buttons">
               <router-link to="recover-password">
-                <button>Восстановить пароль</button>
+
+                <div class="authorization__button-recover">
+                  <UIButton :txt="'Восстановить пароль'" :modify="'third'" :type="'button'"/>
+                </div>
               </router-link>
 
-              <button type="submit">Войти в кабинет</button>
+              <div class="authorization__button-entry">
+                <UIButton :type="'submit'" :modify="'primary'" :txt="'Войти в кабинет'"/>
+              </div>
+
             </div>
 
           </Form>
@@ -86,7 +93,10 @@ async function onSubmit(values) {
           </p>
 
           <router-link to="registration">
-            <button>Зарегистрироваться</button>
+            <div class="authorization__button-registration">
+              <UIButton :txt="'Зарегистрироваться'" :modify="'secondary'" :type="'button'"/>
+            </div>
+
           </router-link>
         </div>
       </div>

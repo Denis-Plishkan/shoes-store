@@ -1,10 +1,14 @@
 <script setup lang="ts">
 
-import {ProductCardPageUi} from "@/components";
+import {Maybe, ProductCard, SimilarProducts} from "@/components";
 </script>
 
 <template>
-  <ProductCardPageUi/>
+  <ProductCard/>
+
+  <SimilarProducts/>
+
+  <Maybe/>
 </template>
 
 <style scoped lang="scss">

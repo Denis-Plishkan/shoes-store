@@ -1,65 +1,66 @@
-import { ILinks } from '../type/type.ts'
+import { ILinks } from '@/type/type'
+import { ISelect } from '@/type/type'
 
 export function headerData() {
   const linksTop: ILinks[] = [
-    { href: '#', name: 'О магазине' },
-    { href: '#', name: 'Наш блог' },
-    { href: '#', name: 'Доставка' },
-    { href: '#', name: 'Оплата' },
-    { href: '#', name: 'Контакты' },
-    { href: '#', name: 'Индивидуальный заказ' },
+    { href: '/404', name: 'О магазине' },
+    { href: '/404', name: 'Наш блог' },
+    { href: '/404', name: 'Доставка' },
+    { href: '/404', name: 'Оплата' },
+    { href: '/404', name: 'Контакты' },
+    { href: '/404', name: 'Индивидуальный заказ' },
   ]
 
   const links: ILinks[] = [
-    { href: '#', name: 'Мужские' },
-    { href: '#', name: 'Женские' },
-    { href: '#', name: 'Детские' },
-    { href: '#', name: 'Распродажа' },
+    { href: '/catalog-man', name: 'Мужские' },
+    { href: '/catalog-woman', name: 'Женские' },
+    { href: '/catalog-children', name: 'Детские' },
+    { href: '/catalog-sale', name: 'Распродажа' },
   ]
 
   const icons = [
-    { href: '#', icon: 'like' },
-    { href: '#', icon: 'basket' },
+    { href: '/like-page', icon: 'like' },
+    { href: '/basket', icon: 'basket' },
   ]
 
   const summer: ILinks[] = [
-    { href: '#', name: 'Для бега' },
-    { href: '#', name: 'Повседневная' },
-    { href: '#', name: 'Треккинговая' },
-    { href: '#', name: 'Для футбола' },
-    { href: '#', name: 'Для волейбола' },
-    { href: '#', name: 'Для баскетбола' },
-    { href: '#', name: 'Для тенниса' },
-    { href: '#', name: 'Для водных видов спорта' },
-    { href: '#', name: 'Спортивный' },
-    { href: '#', name: 'Для бега' },
+    { href: '/404', name: 'Для бега' },
+    { href: '/404', name: 'Повседневная' },
+    { href: '/404', name: 'Треккинговая' },
+    { href: '/404', name: 'Для футбола' },
+    { href: '/404', name: 'Для волейбола' },
+    { href: '/404', name: 'Для баскетбола' },
+    { href: '/404', name: 'Для тенниса' },
+    { href: '/404', name: 'Для водных видов спорта' },
+    { href: '/404', name: 'Спортивный' },
+    { href: '/404', name: 'Для бега' },
   ]
 
   const demiSeason: ILinks[] = [
-    { href: '#', name: 'Демисезон' },
-    { href: '#', name: 'Для бега' },
-    { href: '#', name: 'Повседневная' },
-    { href: '#', name: 'Треккинговая' },
-    { href: '#', name: 'Кожаные' },
+    { href: '/404', name: 'Демисезон' },
+    { href: '/404', name: 'Для бега' },
+    { href: '/404', name: 'Повседневная' },
+    { href: '/404', name: 'Треккинговая' },
+    { href: '/404', name: 'Кожаные' },
   ]
 
   const winter = [
-    { href: '#', name: 'Утепленные' },
-    { href: '#', name: 'Повседневная' },
-    { href: '#', name: 'Кожаные' },
+    { href: '/404', name: 'Утепленные' },
+    { href: '/404', name: 'Повседневная' },
+    { href: '/404', name: 'Кожаные' },
   ]
 
   const model: ILinks[] = [
-    { href: '#', name: 'Nike Air Force 1' },
-    { href: '#', name: 'Nike SB Dunk Low' },
-    { href: '#', name: 'Nike Air Max 90' },
-    { href: '#', name: 'NIke Shox' },
-    { href: '#', name: 'Nike Blazer' },
-    { href: '#', name: 'Nike M2K Tekno' },
-    { href: '#', name: 'Nike Air Max Plus' },
-    { href: '#', name: 'Nike Air Huarache' },
-    { href: '#', name: 'Nike Air Zoom 2K' },
-    { href: '#', name: 'Nike Air Presto' },
+    { href: '/404', name: 'Nike Air Force 1' },
+    { href: '/404', name: 'Nike SB Dunk Low' },
+    { href: '/404', name: 'Nike Air Max 90' },
+    { href: '/404', name: 'NIke Shox' },
+    { href: '/404', name: 'Nike Blazer' },
+    { href: '/404', name: 'Nike M2K Tekno' },
+    { href: '/404', name: 'Nike Air Max Plus' },
+    { href: '/404', name: 'Nike Air Huarache' },
+    { href: '/404', name: 'Nike Air Zoom 2K' },
+    { href: '/404', name: 'Nike Air Presto' },
   ]
 
   const photo = {
@@ -68,4 +69,28 @@ export function headerData() {
   }
 
   return { linksTop, links, icons, summer, demiSeason, winter, model, photo }
+}
+
+export function CatalogData() {
+  const selectColors: ISelect[] = [
+    { name: 'Белый' },
+    { name: 'Синий' },
+    { name: 'Черный' },
+    { name: 'Серый' },
+    { name: 'Розовый' },
+    { name: 'Красный' },
+  ]
+
+  const selectPrice: ISelect[] = [
+    { name: 'Цена по убыванию' },
+    { name: 'Цена по возрастанию' },
+  ]
+
+  const selectGender: ISelect[] = [
+    { name: 'Мужские' },
+    { name: 'Женские' },
+    { name: 'Детские' },
+  ]
+
+  return { selectColors, selectPrice, selectGender }
 }

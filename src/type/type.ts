@@ -13,10 +13,16 @@ interface IImg {
   webP: string
 }
 export interface IData {
-  colors: string[]
-  gender: string
+  colors?: string[]
+  gender?: string
   name: string
-  label: string
+  label?: string
   price: IPrice
   img: IImg
+  id: number
+  description?: string
+}
+
+export interface ISelect {
+  name: string
 }

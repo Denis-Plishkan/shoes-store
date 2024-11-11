@@ -6,6 +6,7 @@ import { auth } from '@/modules/firebase/firebase';
 import { sendPasswordResetEmail } from "firebase/auth";
 import BaseIcon from "@/components/Base/BaseIcon.vue";
 import {ref} from "vue";
+import UIButton from "@/components/UI/UIButton.vue";
 
 const breadcrumbs = [
   {
@@ -54,7 +55,10 @@ async function onSubmit(values) {
               <ErrorMessage class="field__error" name="email" />
             </div>
 
-            <button type="submit">Сбросить пароль</button>
+            <div class="recover-password__button">
+              <UIButton :type="'submit'" :modify="'primary'" :txt="'Сбросить пароль'"/>
+            </div>
+
           </Form>
 
           <div v-else class="recover-password__link-reset">

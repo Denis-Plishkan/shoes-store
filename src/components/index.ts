@@ -1,2 +1,2 @@
-export * from './Pages'
+export * from './pages'
 export * from './Base'

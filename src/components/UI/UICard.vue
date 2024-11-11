@@ -1,38 +1,44 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import { useLikesStore } from '@/stores/likes'
+import { useBasketStore } from '@/stores/basket'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import BaseIcon from '../Base/BaseIcon.vue'
 import PictureComponent from '../Base/PictureComponent.vue'
-
-interface IPrice {
-  newPrice: number
-  oldPrice: number
-}
-interface IImg {
-  default: string
-  webP: string
-}
-interface IData {
-  colors: string[]
-  gender: string
-  name: string
-  label: string
-  price: IPrice
-  img: IImg
-  id: number
-}
 import { IData } from '@/type/type'
+import { toast } from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css';
 
 const props = defineProps<{
   card: IData;
+  show?: boolean;
 }>()
 
 const router = useRouter()
 
+const likesStore = useLikesStore();
+const basketStore = useBasketStore();
+
 function handleCardClick() {
-  router.push({ name: 'product-card', params: { id: props.card.id } })
+  router.push({ name: 'product-card', params: { id: props.card.id } });
 }
+
+function likeClick() {
+  likesStore.toggleLike(props.card.id);
+}
+
+function isLiked() {
+  return likesStore.isLiked(props.card.id);
+}
+
+function basketClick() {
+  basketStore.addToBasket(props.card.id);
+  toast('Товар добавлен в корзину', {
+    autoClose: 500,
+  })
+}
+
 </script>
 
 <template>
@@ -48,8 +54,8 @@ function handleCardClick() {
         {{ card.label }}
       </p>
 
-      <div class="card__like">
-        <BaseIcon id="like" />
+      <div @click.stop="likeClick" class="card__like">
+        <BaseIcon :id="isLiked() ? 'like-active' : 'like'" />
       </div>
     </div>
 
@@ -61,14 +67,12 @@ function handleCardClick() {
       />
     </div>
 
-    <div class="card__column">
+    <div class="card__column" v-if="!show">
       <p class="card__gender">{{ card.gender }}</p>
-
       <p class="card__name">{{ card.name }}</p>
 
       <div class="card__color">
         <p class="card__color-txt">Цвета:</p>
-
         <div class="card__color-row">
           <span
             class="card__color-dots"
@@ -77,8 +81,7 @@ function handleCardClick() {
             :style="{
               background: color === 'white' ? '#f8f8f9' : color,
             }"
-          >
-          </span>
+          ></span>
         </div>
       </div>
 
@@ -89,7 +92,7 @@ function handleCardClick() {
             {{ card.price.oldPrice }} грн.
           </p>
         </div>
-        <div class="card__like">
+        <div @click.stop="basketClick" class="card__basket">
           <BaseIcon id="basket" />
         </div>
       </div>
@@ -99,10 +102,10 @@ function handleCardClick() {
 
 <style lang="scss">
 @import '@/assets/style/media';
+
 .card {
   width: 440px;
   position: relative;
-  cursor: pointer;
 
   @include media-breakpoint-down(md) {
     width: 226px;
@@ -152,6 +155,7 @@ function handleCardClick() {
     @include media-breakpoint-down(xs) {
       padding: 5px 6px;
     }
+
     &_sale {
       background: #ff6915;
     }
@@ -161,9 +165,11 @@ function handleCardClick() {
     }
   }
 
-  &__like {
+  &__like,
+  &__basket {
     width: 25px;
     height: 25px;
+    cursor: pointer;
 
     svg {
       width: 100%;
@@ -199,10 +205,10 @@ function handleCardClick() {
   }
 
   &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
     margin: 25px 0 0;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-row-gap: 9px;
 
     @include media-breakpoint-down(md) {
       margin: 15px 0 0;
@@ -232,7 +238,7 @@ function handleCardClick() {
     font-weight: 400;
     font-size: 19px;
     line-height: 137%;
-    width: 400px;
+    width: calc(100% - 10px);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
