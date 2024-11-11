@@ -7,6 +7,7 @@ import { auth } from '@/modules/firebase/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from "vue-router";
 import UIButton from "@/components/UI/UIButton.vue";
+import { LoginValues } from '@/type/type'
 
 const router = useRouter()
 
@@ -28,16 +29,16 @@ const schema = yup.object().shape({
 });
 
 
-async function onSubmit(values) {
+async function onSubmit(values: LoginValues) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
     console.log(userCredential)
     alert('Авторизация прошла успешно!');
 
-    router.push('/');
+    await router.push('/');
 
   } catch (error) {
-    alert(`Ошибка: ${error.message}`);
+    alert(`Ошибка: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`);
   }
 }
 </script>

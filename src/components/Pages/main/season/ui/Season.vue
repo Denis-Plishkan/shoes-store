@@ -2,14 +2,12 @@
 import PictureComponent from '@/components/Base/PictureComponent.vue'
 import UIButton from '@/components/UI/UIButton.vue'
 import BaseIcon from '@/components/Base/BaseIcon.vue'
-import { useMobileBreakpoint } from '@/composible/useResize'
 
 const photo = {
   webp: new URL('@/assets/img/nike.webp', import.meta.url),
   png: new URL('@/assets/img/nike.png', import.meta.url),
 }
 
-const { nameDevice: isDesktop } = useMobileBreakpoint(1023)
 </script>
 
 <template>

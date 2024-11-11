@@ -7,7 +7,6 @@ import UIButton from '@/components/UI/UIButton.vue'
 import PictureComponent from '@/components/Base/PictureComponent.vue'
 import BaseIcon from '@/components/Base/BaseIcon.vue'
 import { useMobileBreakpoint } from '@/composible/useResize'
-import { NavigationOptions } from 'swiper/types'
 
 const photo = {
   webp: new URL('@/assets/img/banner1.webp', import.meta.url),

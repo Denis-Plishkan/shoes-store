@@ -26,3 +26,10 @@ export interface IData {
 export interface ISelect {
   name: string
 }
+
+export interface LoginValues {
+  email: string;
+  password: string;
+  name?: string;
+  tel?: number;
+}

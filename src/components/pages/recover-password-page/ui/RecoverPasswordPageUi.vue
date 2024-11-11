@@ -26,12 +26,12 @@ const schema = yup.object().shape({
   email: yup.string().email().required(),
 });
 
-async function onSubmit(values) {
+async function onSubmit(values: any) {
   try {
     await sendPasswordResetEmail(auth, values.email);
     recover.value = false;
   } catch (error) {
-    alert(`Ошибка: ${error.message}`);
+    alert(`Ошибка: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`);
   }
 }
 

@@ -7,6 +7,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { useRouter } from "vue-router";
 import UIButton from "@/components/UI/UIButton.vue";
+import { LoginValues } from '@/type/type'
 
 const breadcrumbs = [
   {
@@ -38,7 +39,7 @@ const schema = yup.object().shape({
 });
 
 
-async function onSubmit(values) {
+async function onSubmit(values: LoginValues) {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
     const user = userCredential.user;
@@ -52,10 +53,10 @@ async function onSubmit(values) {
     });
 
     alert('Регистрация прошла успешно!');
-    router.push('/');
+    await router.push('/');
 
   } catch (error) {
-    alert(`Ошибка: ${error.message}`);
+    alert(`Ошибка: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`);
   }
 }
 

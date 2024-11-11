@@ -9,6 +9,10 @@ import { useMobileBreakpoint } from '@/composible/useResize'
 import { ref } from 'vue'
 import { useToggle } from '@/composible/useToggle'
 
+interface EmailValues {
+  email: string;
+}
+
 const { infoLinks, itemLinks, shopLinks, social, photo } = footerData()
 
 const isInfo = ref(false)
@@ -20,9 +24,10 @@ const handleProduct = useToggle(isProduct)
 const handleShop = useToggle(isShop)
 
 const { nameDevice: isTable } = useMobileBreakpoint(767)
-const sentEmail = (values) => {
-  console.log('Відправка email:', values.email)
-}
+
+const sentEmail = (values: EmailValues) => {
+  console.log('Відправка email:', values.email);
+};
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),

@@ -1,19 +1,16 @@
 <script setup lang="ts">
-import { ref, watch, computed } from 'vue'
+import { ref } from 'vue'
 import BaseIcon from '@/components/Base/BaseIcon.vue'
 import { useToggle } from '@/composible/useToggle.ts'
 import { useMobileBreakpoint } from '@/composible/useResize.ts'
-import { useLikesStore } from '@/stores/likes'
-import { useBasketStore } from '@/stores/basket'
 import { headerData } from '@/data/HeaderData.ts'
 import UIButton from '@/components/UI/UIButton.vue'
 import PictureComponent from '@/components/Base/PictureComponent.vue'
 import { BaseInput } from '@/components'
+import { useRouter } from 'vue-router'
 
-
-const likesStore = useLikesStore();
-const basketStore = useBasketStore()
-const like = ref(likesStore.likedCards.length);
+const like = ref(1)
+const basket = ref(4)
 const isSearch = ref(false)
 const isCatalog = ref(false)
 const isMenu = ref(false)
@@ -31,22 +28,16 @@ const handleWinter = useToggle(isWinter)
 const handleModel = useToggle(isModel)
 
 const { nameDevice: isDesktop } = useMobileBreakpoint(1023)
-const { nameDevice: isTable } = useMobileBreakpoint(768)
+const { nameDevice: isTable } = useMobileBreakpoint(767)
 const { nameDevice: isMobile } = useMobileBreakpoint(575)
 const { linksTop, links, icons, summer, demiSeason, winter, model, photo } =
   headerData()
 
-const basket = computed(() => {
-  return basketStore.basketCards.reduce((acc, item) => acc + item.quantity, 0);
-});
+const router = useRouter();
 
-watch(
-  () => likesStore.likedCards.length,
-  (newLength) => {
-    like.value = newLength;
-  }
-);
-
+function goToCatalog() {
+  router.push('/catalog');
+}
 </script>
 
 <template>
@@ -67,7 +58,7 @@ watch(
           </ul>
         </nav>
         <div class="header__top-account">
-          <router-link class="header__top-sign" to="/registration">
+          <router-link class="header__top-sign" to="#">
             <BaseIcon id="sign" />
 
             Вход \ Регистрация
@@ -81,7 +72,7 @@ watch(
         <div class="header__row">
           <div class="header__sub-row">
             <div class="header__logo">
-              <router-link to="/">
+              <router-link to="#">
                 <BaseIcon id="logo" />
               </router-link>
             </div>
@@ -89,17 +80,14 @@ watch(
             <nav class="header__menu">
               <ul class="header__list">
                 <li class="header__li">
-
-                  <router-link to="/catalog">
-                    <UIButton
-                      class="header__link header__btn"
-                      :class="{ 'header__link_active': isCatalog }"
-                      :txt="isMobile ? '' : !isTable ? 'Каталог' : 'Меню'"
-                    >
-                      <BaseIcon id="menu"/>
-                    </UIButton>
-                  </router-link>
-
+                  <UIButton
+                    @click="goToCatalog"
+                    class="header__link header__btn"
+                    :class="{ 'header__link_active': isCatalog }"
+                    :txt="isMobile ? '' : !isTable ? 'Каталог' : 'Меню'"
+                  >
+                    <BaseIcon id="menu" @click="handleCatalog"/>
+                  </UIButton>
                 </li>
 
                 <li
@@ -142,8 +130,7 @@ watch(
               >
                 <BaseIcon :id="icon.icon" />
 
-                <span v-if="icon.icon === 'like'" class="header__counter"
-                >
+                <span v-if="icon.icon === 'like'" class="header__counter">
                   {{ like }}
                 </span>
 
@@ -364,7 +351,7 @@ watch(
 
               <div class="header__catalog-flex"></div>
               <router-link class="header__catalog-all" to="#"
-                >Перейти в каталог</router-link
+              >Перейти в каталог</router-link
               >
             </div>
           </div>
@@ -410,10 +397,6 @@ watch(
   min-height: 115px;
   z-index: 60;
   background: $white-50;
-
-  @include media-breakpoint-down(sm) {
-    min-height: 72px;
-  }
 
   &__top {
     display: flex;
@@ -823,7 +806,6 @@ watch(
     height: 16px;
     background: $light-orange;
     border-radius: 50%;
-    z-index: 1;
 
     @include media-breakpoint-down(sm) {
       top: 18px;
