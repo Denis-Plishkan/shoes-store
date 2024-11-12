@@ -2,7 +2,7 @@
 import BaseIcon from './BaseIcon.vue'
 import { footerData } from '@/data/FooterData'
 import UIButton from '@/components/UI/UIButton.vue'
-import { ErrorMessage, Field, Form } from 'vee-validate'
+import { ErrorMessage, Field, Form, SubmissionHandler  } from 'vee-validate'
 import * as yup from 'yup'
 import PictureComponent from '@/components/Base/PictureComponent.vue'
 import { useMobileBreakpoint } from '@/composible/useResize'
@@ -25,9 +25,10 @@ const handleShop = useToggle(isShop)
 
 const { nameDevice: isTable } = useMobileBreakpoint(767)
 
-const sentEmail = (values: EmailValues) => {
-  console.log('Відправка email:', values.email);
+const sentEmail: SubmissionHandler<Record<string, any>> = (values) => {
+  console.log('Відправка email:', (values as EmailValues).email);
 };
+
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),

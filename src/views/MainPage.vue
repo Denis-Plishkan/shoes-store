@@ -9,7 +9,8 @@ import {
   Season,
   Sellers,
 } from '@/components'
-import About from '@/components/Pages/main/about/ui/About.vue'
+import About from '@/components/pages/main/about/ui/About.vue'
+
 </script>
 
 <template>
@@ -30,7 +31,7 @@ import About from '@/components/Pages/main/about/ui/About.vue'
 
     <News />
 
-    <About />
+    <About/>
 
   </main>
 </template>

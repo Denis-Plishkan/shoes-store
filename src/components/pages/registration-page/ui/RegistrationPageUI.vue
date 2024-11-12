@@ -39,26 +39,27 @@ const schema = yup.object().shape({
 });
 
 
-async function onSubmit(values: LoginValues) {
+async function onSubmit(values: Record<string, any>) {
+  const loginValues = values as LoginValues;
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+    const userCredential = await createUserWithEmailAndPassword(auth, loginValues.email, loginValues.password);
     const user = userCredential.user;
 
     await setDoc(doc(db, "users", user.uid), {
-      email: values.email,
-      name: values.name,
-      tel: values.tel,
+      email: loginValues.email,
+      name: loginValues.name,
+      tel: loginValues.tel,
       uid: user.uid,
       createdAt: new Date(),
     });
 
     alert('Регистрация прошла успешно!');
     await router.push('/');
-
   } catch (error) {
     alert(`Ошибка: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`);
   }
 }
+
 
 </script>
 

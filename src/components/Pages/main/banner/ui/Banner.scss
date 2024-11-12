@@ -161,6 +161,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include media-breakpoint-down(lg) {
+      top: 726px;
+    }
   }
 
   &__prev,

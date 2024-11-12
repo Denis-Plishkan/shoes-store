@@ -28,19 +28,18 @@ const schema = yup.object().shape({
   password: yup.string().min(6).required(),
 });
 
-
-async function onSubmit(values: LoginValues) {
+async function onSubmit(values: Record<string, any>) {
+  const loginValues = values as LoginValues;
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
-    console.log(userCredential)
+    const userCredential = await signInWithEmailAndPassword(auth, loginValues.email, loginValues.password);
+    console.log(userCredential);
     alert('Авторизация прошла успешно!');
-
     await router.push('/');
-
   } catch (error) {
     alert(`Ошибка: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`);
   }
 }
+
 </script>
 
 <template>

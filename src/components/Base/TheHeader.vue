@@ -412,6 +412,10 @@ watch(
   z-index: 60;
   background: $white-50;
 
+  @include media-breakpoint-down(sm) {
+    min-height: 75px;
+  }
+
   &__top {
     display: flex;
     justify-content: space-between;
@@ -1169,6 +1173,12 @@ watch(
 .header-catalog__container {
   @include media-breakpoint-down(sm) {
     padding: 0 !important;
+  }
+}
+
+.v-breadcrumbs--density-default {
+  @include media-breakpoint-down(sm) {
+    padding-top: 33px;
   }
 }
 </style>
