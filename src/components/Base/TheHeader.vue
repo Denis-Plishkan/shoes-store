@@ -72,7 +72,7 @@ watch(
           </ul>
         </nav>
         <div class="header__top-account">
-          <router-link class="header__top-sign" to="#">
+          <router-link class="header__top-sign" to="/registration">
             <BaseIcon id="sign" />
 
             Вход \ Регистрация
