@@ -6,6 +6,7 @@ import UICard from "@/components/UI/UICard.vue";
 import { Slider } from "@/components";
 import { IData } from "@/type/type";
 import { CatalogData } from '@/data/HeaderData'
+import { scrollToTop } from '@/utils/scrollToTop'
 
 const breadcrumbs = [
   { title: 'Главная', disabled: false, href: '/' },
@@ -99,6 +100,7 @@ watch([range, selectedColor, selectedPrice, selectedGender], () => {
 
 watch(currentPage, () => {
   filterShoes();
+  scrollToTop()
 });
 
 onMounted(getShoes);

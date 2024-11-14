@@ -1,4 +1,4 @@
-import {createRouter, createWebHashHistory} from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import MainPage from "../views/MainPage.vue";
 
 const router = createRouter({
@@ -69,7 +69,14 @@ const router = createRouter({
             name: '404',
             component: () => import("@/views/404.vue"),
         },
-    ]
-})
+    ],
+    scrollBehavior(_to, _from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition;
+        } else {
+            return { top: 0 };
+        }
+    }
+});
 
 export default router;

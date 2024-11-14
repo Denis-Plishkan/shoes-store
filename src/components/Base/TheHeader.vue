@@ -818,6 +818,7 @@ watch(
     font-size: 9px;
     color: $white-50;
     position: absolute;
+    z-index: 2;
     top: -5px;
     right: -5px;
     width: 16px;

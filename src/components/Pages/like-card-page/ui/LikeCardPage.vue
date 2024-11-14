@@ -1,12 +1,13 @@
 <script setup lang="ts">
 
 import UICard from '@/components/UI/UICard.vue'
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useLikesStore } from '@/stores/likes'
 import { IData } from '@/type/type'
 import { collection, getDocs, getFirestore } from 'firebase/firestore'
 import firebaseApp from "@/modules/firebase/firebase";
 import UIButton from '@/components/UI/UIButton.vue'
+import { scrollToTop } from '@/utils/scrollToTop'
 
 const currentPage = ref<number>(1);
 const itemsPerPage = ref<number>(9);
@@ -62,6 +63,10 @@ const paginatedShoesData = computed(() => {
   const end = start + itemsPerPage.value;
   return filteredShoesData.value.slice(start, end);
 });
+
+watch(currentPage, () => {
+  scrollToTop();
+})
 
 getShoes()
 
